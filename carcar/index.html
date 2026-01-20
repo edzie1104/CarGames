@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Racing</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Audio elements for sounds -->
+    <audio id="bgMusic" loop>
+        <source src="sound/background-music.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="buttonSound">
+        <source src="sound/button-click.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="coinSound">
+        <source src="sound/coin-collect.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="magnetSound">
+        <source src="sound/magnet-collect.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="crashSound">
+        <source src="sound/car-crash.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="engineSound" loop>
+        <source src="sound/engine-running.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="story-screen">
+        <div class="story-content">
+            <h2>Welcome to Car Traffic Rush!</h2>
+            <div class="story-text">
+                <p>You're a new racer in the underground street racing scene.</p>
+                <p>Your mission is to avoid other cars while scoring points.</p>
+                <p>Collect coins to increase your coin count and magnets to attract coins!</p>
+                <p>Controls: Use arrow keys to move your car.</p>
+                <p>Each car you dodge gives you 1 point.</p>
+                <p>Be careful - hit another car and it's game over!</p>
+            </div>
+            <button class="back">Back</button>
+            <button class="story-continue">Start Racing</button>
+        </div>
+    </div>
+
+    <div class="main-menu hide">
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="videoplayback.mp4" type="video/mp4">
+        </video>
+        <div class="menu-content">
+            <h1>Car Traffic Rush</h1>
+            <button class="menu-btn play-btn">Play Game</button>
+            <button class="menu-btn shop-btn"> Shop</button>
+            <div class="total-coins">
+                Total Coins: <span id="total-coins">0</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cargame hide">
+        <div class="score">Score: 0</div>
+        <div class="coins">Coins: 0</div>
+        <div class="high-score">High Score (EASY): 0</div>
+        <div class="magnet-timer hide">Magnet: 0s</div>
+        <button class="exit-btn">Exit </button>
+        <div class="startScreen">
+            <p>Press here to start<br>
+               Arrow keys to move<br>
+               If you hit another car you will lose.
+            </p>
+            <div class="difficulty">
+                <p>Select Difficulty:</p>
+                <button class="difficulty-btn easy active">Easy</button>
+                <button class="difficulty-btn medium locked" disabled>
+                    Medium <span class="lock-icon">🔒</span>
+                    <span class="unlock-requirement">(Score 50 in Easy to unlock)</span>
+                </button>
+                <button class="difficulty-btn hard locked" disabled>
+                    Hard <span class="lock-icon">🔒</span>
+                    <span class="unlock-requirement">(Score 100 in Medium to unlock)</span>
+                </button>
+            </div>
+            <button class="back-btn hide">Back</button>
+        </div>
+        <div class="gameArea"></div>
+    </div>
+
+    <div class="shop-screen hide">
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="videoplayback.mp4" type="video/mp4">
+        </video>
+        <div class="shop-content">
+            <h2>Car Shop</h2>
+            <div class="total-coins-shop">
+                Total Coins: <span id="shop-coins">0</span>
+            </div>
+            <div class="cars-container">
+                <div class="car-item" data-car="car1">
+                    <div class="car-image" style="background-image: url('car1.png')"></div>
+                    <div class="car-name">Red Sports Car</div>
+                    <div class="car-price">Price: 0 coins (Owned)</div>
+                    <button class="select-car-btn" disabled>Selected</button>
+                </div>
+                <div class="car-item" data-car="car2">
+                    <div class="car-image" style="background-image: url('car2.png')"></div>
+                    <div class="car-name">Blue Racer</div>
+                    <div class="car-price">Price: 20 coins</div>
+                    <button class="buy-car-btn">Buy</button>
+                </div>
+                <div class="car-item" data-car="car3">
+                    <div class="car-image" style="background-image: url('car3.png')"></div>
+                    <div class="car-name">White Dove</div>
+                    <div class="car-price">Price: 30 coins</div>
+                    <button class="buy-car-btn">Buy</button>
+                </div>
+                <div class="car-item" data-car="car4">
+                    <div class="car-image" style="background-image: url('car4.png')"></div>
+                    <div class="car-name">Yellow Lightning</div>
+                    <div class="car-price">Price: 50 coins</div>
+                    <button class="buy-car-btn">Buy</button>
+                </div>
+                <div class="car-item" data-car="car5">
+                    <div class="car-image" style="background-image: url('car5.png')"></div>
+                    <div class="car-name">Ash Gray</div>
+                    <div class="car-price">Price: 55 coins</div>
+                    <button class="buy-car-btn">Buy</button>
+                </div>
+                <div class="car-item" data-car="car6">
+                    <div class="car-image" style="background-image: url('car6.png')"></div>
+                    <div class="car-name">Cookies & Cream</div>
+                    <div class="car-price">Price: 45 coins</div>
+                    <button class="buy-car-btn">Buy</button>
+                </div>
+            </div>
+            <button class="back-to-menu">Back to Menu</button>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
